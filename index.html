@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Git adlkaadlk</title>
+  <link rel="stylesheet" href="assets/highlight-github-local.css">
   <style>
     :root {
       --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -119,46 +120,10 @@
     }
 }</code></pre>
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
-    const jsonCodeElement = document.querySelector("code.language-json");
-
-    if (jsonCodeElement) {
-      const rawJson = jsonCodeElement.textContent;
-      const escapeHtml = (value) => value
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-
-      const highlightedJson = escapeHtml(rawJson).replace(
-        /("(?:\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*"\s*:?)|(\btrue\b|\bfalse\b)|(\bnull\b)|(-?\b\d+(?:\.\d+)?(?:[eE][+\-]?\d+)?\b)|([{}\[\],:])/g,
-        (match, stringToken, booleanToken, nullToken, numberToken, punctuationToken) => {
-          if (stringToken) {
-            const tokenClass = stringToken.endsWith(":") ? "token-key" : "token-string";
-            return `<span class="${tokenClass}">${stringToken}</span>`;
-          }
-
-          if (booleanToken) {
-            return `<span class="token-boolean">${booleanToken}</span>`;
-          }
-
-          if (nullToken) {
-            return `<span class="token-null">${nullToken}</span>`;
-          }
-
-          if (numberToken) {
-            return `<span class="token-number">${numberToken}</span>`;
-          }
-
-          if (punctuationToken) {
-            return `<span class="token-punctuation">${punctuationToken}</span>`;
-          }
-
-          return match;
-        }
-      );
-
-      jsonCodeElement.innerHTML = highlightedJson;
-    }
+    hljs.highlightAll();
   </script>
 </body>
 </html>
