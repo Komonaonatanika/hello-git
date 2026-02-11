@@ -45,6 +45,11 @@
       margin-top: 0;
     }
 
+    .intro-code {
+      color: #dc2626;
+      font-weight: 600;
+    }
+
     pre,
     code {
       font-family: var(--font-mono);
@@ -62,14 +67,36 @@
       overflow-wrap: anywhere;
       word-break: break-word;
     }
+
+    .token-punctuation {
+      color: #6b7280;
+    }
+
+    .token-key {
+      color: #1d4ed8;
+    }
+
+    .token-string {
+      color: #047857;
+    }
+
+    .token-number {
+      color: #7c3aed;
+    }
+
+    .token-boolean,
+    .token-null {
+      color: #b45309;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
   <main class="content-block">
     <h1>Hello for git and more and more еще чуть чуть, Git + GitHub 🚀</h1>
     <p>Edited at work (2026-02-10)</p>
-    <p>а теперь немного кода:</p>
-    <pre><code>{
+    <p class="intro-code">а теперь немного кода:</p>
+    <pre><code class="language-json">{
     "glossary": {
         "title": "example glossary",
         "GlossDiv": {
@@ -92,5 +119,46 @@
     }
 }</code></pre>
   </main>
+  <script>
+    const jsonCodeElement = document.querySelector("code.language-json");
+
+    if (jsonCodeElement) {
+      const rawJson = jsonCodeElement.textContent;
+      const escapeHtml = (value) => value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+      const highlightedJson = escapeHtml(rawJson).replace(
+        /("(?:\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*"\s*:?)|(\btrue\b|\bfalse\b)|(\bnull\b)|(-?\b\d+(?:\.\d+)?(?:[eE][+\-]?\d+)?\b)|([{}\[\],:])/g,
+        (match, stringToken, booleanToken, nullToken, numberToken, punctuationToken) => {
+          if (stringToken) {
+            const tokenClass = stringToken.endsWith(":") ? "token-key" : "token-string";
+            return `<span class="${tokenClass}">${stringToken}</span>`;
+          }
+
+          if (booleanToken) {
+            return `<span class="token-boolean">${booleanToken}</span>`;
+          }
+
+          if (nullToken) {
+            return `<span class="token-null">${nullToken}</span>`;
+          }
+
+          if (numberToken) {
+            return `<span class="token-number">${numberToken}</span>`;
+          }
+
+          if (punctuationToken) {
+            return `<span class="token-punctuation">${punctuationToken}</span>`;
+          }
+
+          return match;
+        }
+      );
+
+      jsonCodeElement.innerHTML = highlightedJson;
+    }
+  </script>
 </body>
 </html>
