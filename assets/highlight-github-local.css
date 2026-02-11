@@ -1,0 +1,31 @@
+/* Local Highlight.js theme inspired by GitHub */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  color: #24292e;
+  background: transparent;
+}
+
+.hljs-punctuation {
+  color: #24292e;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-property {
+  color: #0550ae;
+}
+
+.hljs-string {
+  color: #0a3069;
+}
+
+.hljs-number {
+  color: #8250df;
+}
+
+.hljs-literal,
+.hljs-keyword,
+.hljs-boolean {
+  color: #cf222e;
+}

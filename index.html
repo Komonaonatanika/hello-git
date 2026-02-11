@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Git adlkaadlk</title>
+  <link rel="stylesheet" href="assets/highlight-github-local.css">
   <style>
     :root {
       --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -45,6 +46,11 @@
       margin-top: 0;
     }
 
+    .intro-code {
+      color: #dc2626;
+      font-weight: 600;
+    }
+
     pre,
     code {
       font-family: var(--font-mono);
@@ -68,8 +74,8 @@
   <main class="content-block">
     <h1>Hello for git and more and more еще чуть чуть, Git + GitHub 🚀</h1>
     <p>Edited at work (2026-02-10)</p>
-    <p>а теперь немного кода:</p>
-    <pre><code>{
+    <p class="intro-code">а теперь немного кода:</p>
+    <pre><code class="language-json">{
     "glossary": {
         "title": "example glossary",
         "GlossDiv": {
@@ -92,5 +98,10 @@
     }
 }</code></pre>
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
 </body>
 </html>
