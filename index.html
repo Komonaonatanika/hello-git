@@ -2,11 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Git</title>
+  <style>
+    :root {
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "Source Code Pro", "Courier New", Courier, monospace;
+      --vertical-gap: 15vh;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: #f7f8fa;
+      color: #1f2937;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: var(--vertical-gap);
+      padding-bottom: var(--vertical-gap);
+    }
+
+    .content-block {
+      width: 50vw;
+      min-width: 320px;
+      max-width: 900px;
+      height: calc(100vh - (var(--vertical-gap) * 2));
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      padding: 24px;
+      overflow: auto;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    pre,
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    pre {
+      margin: 0;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, Git + GitHub 🚀</h1>
-  <p>Edited at work (2026-02-10)</p>
-
+  <main class="content-block">
+    <h1>Hello, Git + GitHub 🚀</h1>
+    <p>Edited at work (2026-02-10)</p>
+    <p>а теперь немного кода:</p>
+    <pre><code>{
+    "glossary": {
+        "title": "example glossary",
+        "GlossDiv": {
+            "title": "S",
+            "GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+                    "SortAs": "SGML",
+                    "GlossTerm": "Standard Generalized Markup Language",
+                    "Acronym": "SGML",
+                    "Abbrev": "ISO 8879:1986",
+                    "GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+                        "GlossSeeAlso": ["GML", "XML"]
+                    },
+                    "GlossSee": "markup"
+                }
+            }
+        }
+    }
+}</code></pre>
+  </main>
 </body>
 </html>
